@@ -19,7 +19,7 @@ SRCS := $(addprefix srcs/, $(SRCS))
 OBJS = $(patsubst srcs/%.c,objs/%.o,$(SRCS))
 
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -ggdb -Wall -Werror -Wextra
 
 # COLORS := $(shell seq 31 37)
 

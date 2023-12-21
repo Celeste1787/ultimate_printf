@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:43:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 20:16:27 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:43:17 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,7 @@ int	ft_strlen(char *str)
 
 int	ft_putstrlen(char *str, int len)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] && i < len)
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
+	return (write(1, str, len));
 }
 
 int	s_handler(char *str, t_flag flags)
@@ -46,7 +38,7 @@ int	s_handler(char *str, t_flag flags)
 	if (!str)
 		return (ft_putstrlen("(null)", 6));
 	len = ft_strlen(str);
-	if (flags.dot && flags.precision > 0)
+	if (flags.dot && flags.precision >= 0 && flags.precision < len)
 		len = flags.precision;
 	if (flags.dash)
 		count += ft_putstrlen(str, len);

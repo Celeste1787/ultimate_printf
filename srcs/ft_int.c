@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:58:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 19:46:06 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:18:38 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,33 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+int	negative_int_len(long long n, int base)
+{
+	return (positive_int_len(-n, base));
+	//return (positive_int_len(n * -1, base) + 1);
+}
 
-int	ft_nbcount(size_t n, int base)
+int positive_int_len(unsigned long long n, int base)
 {
 	int	count;
 
 	count = 0;
-	if (n <= 0)
+	if (n == 0)
+		return (1);
+	while (n > 0)
 	{
-		n *= -1;
-		count++;
-	}
-	while (n)
-	{
-		count++;
 		n /= base;
+		count++;
 	}
 	return (count);
+}
+
+int	ft_nbcount(long long n, int base)
+{
+	if (n < 0)
+		return (negative_int_len(n, base));
+	else
+		return (positive_int_len(n, base));
 }
 
 char	*ft_itoa(int n)
@@ -45,6 +55,7 @@ char	*ft_itoa(int n)
 
 	ln = (long) n;
 	size = ft_nbcount(ln, 10);
+	size += ln < 0;
 	nb = ft_calloc(sizeof(char), size + 1);
 	if (!nb)
 		return (NULL);

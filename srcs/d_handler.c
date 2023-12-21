@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:56:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 19:06:53 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:16:39 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,13 @@ int	ft_put_n_count_nbr(long n, int count)
 	ft_put_n_count_char((n % 10) + 48);
 	return (tmp);
 }
+
 int	d_width(long n, t_flag flags)
 {
 	int	count;
 
 	count = 0;
-	if (flags.plus && n >= 0 && !flags.zero)
+	if (n < 0 || (flags.plus && n >= 0 && !flags.zero))
 		flags.width--;
 	if (flags.dash)
 	{
@@ -41,6 +42,8 @@ int	d_width(long n, t_flag flags)
 			count += ft_put_n_count_char('+');
 		count += ft_put_n_count_nbr(n, 1);
 	}
+	if (flags.plus && n >= 0 && flags.zero && !flags.dash)
+		count += ft_put_n_count_char('+');
 	if (flags.zero && n < 0 && !flags.dash && flags.width > ft_nbcount(n, 10))
 	{
 		count += ft_put_n_count_char('-');
@@ -49,7 +52,7 @@ int	d_width(long n, t_flag flags)
 	count += width_manager(flags.width, ft_nbcount(n, 10), flags.zero);
 	if (!flags.dash)
 	{
-		if (flags.plus && n >= 0 && !flags.zero)
+		if (flags.plus && n >= 0 && flags.zero)
 			count += ft_put_n_count_char('+');
 		count += ft_put_n_count_nbr(n, 1);
 	}
@@ -78,12 +81,8 @@ int	d_handler(int n, t_flag flags)
 	if ((flags.width || flags.dash || flags.plus
 		|| flags.zero) && !flags.dot)
 		return (d_width(x, flags));
-	else if (flags.dot)
-	{
+	if (flags.dot)
 		return (d_dot(x, flags));
-	}
 	else
 		return (ft_put_n_count_nbr(x, 1));
 }
-
-

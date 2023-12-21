@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:00:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 19:09:47 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:41:09 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_draft(char flag, va_list *arg, t_flag flags)
 	else if (flag == 'u')
 		wrote = u_handler(arg);
 	else if (flag == 'p')
-		wrote = p_handler(va_arg(*arg, size_t), flags);
+		wrote = p_handler(va_arg(*arg, uintptr_t), flags);
 	else if (flag == 's')
 		wrote = s_handler(va_arg(*arg, char *), flags);
 	else if (flag == 'x')

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 20:08:58 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/21 15:59:05 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <limits.h>
 # include <stdio.h>
 
 typedef	struct s_flag
@@ -43,7 +44,9 @@ int		ft_put_n_count_nbr(long n, int count);
 int		ft_put_n_count_u(unsigned int n, int count);
 int		ft_put_n_count_hex(size_t n, int count, int bin);
 
-int		ft_nbcount(size_t n, int base);
+int		ft_nbcount(long long n, int base);
+int		positive_int_len(unsigned long long n, int base);
+int		negative_int_len(long long n, int base);
 char	*ft_itoa(int n);
 int		ft_atoi(const char *nptr, int *i);
 int		ft_isdigit(int c);
@@ -53,7 +56,7 @@ void	ft_bzero(void *s, size_t n);
 
 int		c_handler(int c, t_flag flags);
 int		d_handler(int n, t_flag flags);
-int		p_handler(size_t n, t_flag flags);
+int		p_handler(uintptr_t n, t_flag flags);
 int		s_handler(char *str, t_flag flags);
 int		u_handler(va_list *arg);
 int		x_handler(va_list *arg, int bin);
