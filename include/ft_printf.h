@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/21 15:59:05 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/26 21:17:18 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef	struct s_flag
 	int	precision;
 	int	dot;
 	int	length;
+	int	total_width;
 }	t_flag;
 
 int		ft_printf(const char *str, ...);
@@ -41,7 +42,7 @@ int		ft_putstrlen(char *str, int len);
 
 int		ft_put_n_count_char(char c);
 int		ft_put_n_count_nbr(long n, int count);
-int		ft_put_n_count_u(unsigned int n, int count);
+int		ft_put_n_count_u(unsigned long n, int count);
 int		ft_put_n_count_hex(size_t n, int count, int bin);
 
 int		ft_nbcount(long long n, int base);
@@ -55,16 +56,22 @@ void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
 
 int		c_handler(int c, t_flag flags);
+
 int		d_handler(int n, t_flag flags);
+int		d_width(long n, t_flag flags);
+int		d_dot(long n, t_flag flags);
+
 int		p_handler(uintptr_t n, t_flag flags);
 int		s_handler(char *str, t_flag flags);
-int		u_handler(va_list *arg);
-int		x_handler(va_list *arg, int bin);
+int		u_handler(unsigned int n, t_flag flags);
+int		x_handler(unsigned int hex, t_flag flags, int bin);
 
 void	flag_init(t_flag *flags);
 void	flag_parsing(char const *str, t_flag *flags, int *i);
 void	flag_precision(char const *str, t_flag *flags, int *i);
 
 int		width_manager(int width, int minus, int zero);
+int		precision_manager(int precision, int len);
+int		d_width_m(long n, t_flag flags);
 
 #endif

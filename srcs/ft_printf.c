@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 17:01:31 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/26 21:09:58 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,8 @@ int	ft_printf(const char *str, ...)
 			i++;
 			flag_parsing(str, &flags, &i);
 			flag_precision(str, &flags, &i);
-			// printf("flags->hash 		= %d\n", flags.hash);
-			// printf("flags->dash 		= %d\n", flags.dash);
-			// printf("flags->space 		= %d\n", flags.space);
-			// printf("flags->precision 	= %d\n", flags.precision);
-			// printf("flags->dot			= %d\n", flags.dot);
-			// printf("flags->width 		= %d\n", flags.width);
-			// printf("flags->zero 		= %d\n", flags.zero);
+			// printf("flags are: %d %d %d %d %d %d %d %d\n", flags.dash, flags.plus, flags.hash, flags.space, flags.zero, flags.width, flags.precision, flags.total_width);
 			wrote += ft_draft(str[i], &arg, flags);
-			// i++;
 		}
 		else
 			wrote += ft_put_n_count_char(str[i]);

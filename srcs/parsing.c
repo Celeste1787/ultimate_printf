@@ -6,29 +6,27 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:38:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 17:00:40 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/26 22:26:28 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	flag_init(t_flag *flags)
+void apply_rules(t_flag *flags)
 {
-
-	flags->dash = 0;
-	flags->plus = 0;
-	flags->space = 0;
-	flags->hash = 0;
-	flags->zero = 0;
-	flags->width = 0;
-	flags->precision = 0;
-	flags->length = 0;
-	flags->dot = 0;
+	if (flags->precision >= flags->width)
+		flags->width = 0;
+	flags->total_width = flags->width;
+	if ((flags->zero && flags->dash) || flags->precision > 0)
+		flags->zero = 0;
+	if (flags->plus && flags->space)
+		flags->space = 0;
+	// if (flags->precision > 0 && flags->precision < flags->width)
+	// 	flags->total_width = flags->width - flags->precision;
 }
-
 void	flag_parsing(char const *str, t_flag *flags, int *i)
 {
-	flag_init(flags);
+	*flags = (t_flag){};
 	while (str[*i])
 	{
 		if (str[*i] == '-')
@@ -64,4 +62,5 @@ void	flag_precision(char const *str, t_flag *flags, int *i)
 		flags->precision = flags->precision * 10 + (str[*i] - 48);
 		(*i)++;
 	}
+	apply_rules(flags);
 }

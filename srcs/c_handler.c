@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:42:52 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/20 16:51:24 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/25 17:28:55 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	c_handler(int c, t_flag flags)
 	count = 0;
 	if (flags.dash)
 		count += ft_put_n_count_char(c);
-	count += width_manager(flags.width, 1, 0);
+	count += width_manager(flags.width, 1, flags.zero);
 	if (!flags.dash)
 		count += ft_put_n_count_char(c);
 	return (count);

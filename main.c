@@ -5,8 +5,8 @@
 
 int main()
 {
-
-	// int x = ft_printf(" |%-3c|\n", '0' + 256);
+	int x;
+	// x = ft_printf(" |%-3c|\n", '0' + 256);
 	// ft_printf("return value is: %d\n", x);
 	// ft_printf("========================================\n");
 	// x = printf(" |%-3c|\n", '0' + 256);
@@ -15,8 +15,8 @@ int main()
 	// ft_printf("========================================\n");
 	// ft_printf("========================================\n");
 
-	char *str = "0test";
-	char *str2 = "test";
+	// char *str = NULL;
+	// char *str2 = NULL;
 	// x = ft_printf("%-13p %-14p\n", ULONG_MAX, -ULONG_MAX);
 	// printf("return value is: %d\n", x);
 	// printf("num len is: %d\n", ft_nbcount(ULONG_MAX, 16));
@@ -25,18 +25,23 @@ int main()
 	// ft_printf(" %02d\n", -1);
 	// ft_printf(" %-6d\n", -16);
 	// ft_printf(" %-6d\n", -16);
-	ft_printf("%04d\n", -14);
-	printf("%04d\n", -14);
-	ft_printf("%05d\n", -15);
-	printf("%05d\n", -15);
-	ft_printf("%06d\n", -16);
-	printf("%06d\n", -16);
+	// x = ft_printf("%-+15.10d\n", -10);
+	// printf("return value is: %d\n", x);
+	x = ft_printf("%042.2d\n", 42000);
+	printf("return value is: %d\n", x);
+	x = printf("%042.2d\n", 42000);
+	printf("return value is: %d\n", x);
+	// ft_put_n_count_nbr(0, 1);
+	// ft_printf("%05d\n", -15);
+	// printf("%05d\n", -15);
+	// ft_printf("%06d\n", -16);
+	// printf("%06d\n", -16);
 	// int c = printf(" %-13p %-14p\n", ULONG_MAX, -ULONG_MAX);
 	// int x = ft_printf(" %-13p %-14p\n", ULONG_MAX, -ULONG_MAX);
 	// printf("return value is: %d\n", c);
 	// printf("return value is: %d\n", x);
 	// printf("return value is: %d\n", x);
-	printf("nbcount of ULONG_MAX is: %d\n", ft_nbcount(ULONG_MAX, 10));
+	// printf("nbcount of ULONG_MAX is: %d\n", ft_nbcount(ULONG_MAX, 10));
 	// ft_printf("return value is: %d\n", x);
 	// ft_printf("return value is: %d\n", x);
 	// ft_printf("========================================\n");

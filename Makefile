@@ -21,20 +21,20 @@ OBJS = $(patsubst srcs/%.c,objs/%.o,$(SRCS))
 CC := cc
 CFLAGS := -ggdb -Wall -Werror -Wextra
 
-# COLORS := $(shell seq 31 37)
+COLORS := $(shell seq 31 37)
 
-all: create_dirs $(NAME) $(INCLUDES)
+all: create_dirs $(NAME) $(INCLUDES) main
 
-# main: main.c libftprintf.a
-# 	@cc ${CFLAGS} main.c libftprintf.a && ./a.out
+main: main.c libftprintf.a
+	@cc ${CFLAGS} main.c libftprintf.a && ./a.out
 
 create_dirs:
 	@if [ ! -d "objs" ]; then mkdir objs; fi
 
 objs/%.o: srcs/%.c $(INCLUDES)
-# @COLOR_CODE=$$(echo "$(COLORS)" | awk '{srand(); print int(rand()*7)}'); \
-# 	printf "\033[1;%sm\t\tCompiling: $<\033[0m\r" $$((30+COLOR_CODE));
-	$(CC) $(CFLAGS) -c $< -o $@;
+	@COLOR_CODE=$$(echo "$(COLORS)" | awk '{srand(); print int(rand()*7)}'); \
+	printf "\033[1;%sm\t\tCompiling: $<\033[0m\r" $$((30+COLOR_CODE));
+	@$(CC) $(CFLAGS) -c $< -o $@;
 
 bonus: all
 
