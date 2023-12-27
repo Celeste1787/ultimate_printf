@@ -6,12 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:25:54 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 20:59:43 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:24:37 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+// Basically the same thing as d_handler
 int	ft_put_n_count_u(unsigned long n, int count)
 {
 	int	tmp;
@@ -25,7 +26,7 @@ int	ft_put_n_count_u(unsigned long n, int count)
 
 int	u_handler(unsigned int n, t_flag flags)
 {
-	int	count;
+	int				count;
 	unsigned long	x;
 
 	x = n;

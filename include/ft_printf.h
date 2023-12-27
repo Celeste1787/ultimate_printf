@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 18:37:31 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:28:19 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,16 @@
 # include <limits.h>
 # include <stdio.h>
 
-typedef	struct s_flag
+typedef struct s_flag
 {
-	int dash;
+	int	dash;
 	int	plus;
 	int	zero;
 	int	space;
 	int	hash;
-	int width;
+	int	width;
 	int	precision;
 	int	dot;
-	int	length;
 	int	total_width;
 }	t_flag;
 
@@ -48,25 +47,16 @@ int		ft_put_n_count_hex(size_t n, int count, int bin);
 int		ft_nbcount(long long n, int base);
 int		positive_int_len(unsigned long long n, int base);
 int		negative_int_len(long long n, int base);
-char	*ft_itoa(int n);
-int		ft_atoi(const char *nptr, int *i);
-int		ft_isdigit(int c);
-
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
 
 int		c_handler(int c, t_flag flags);
 
 int		d_handler(int n, t_flag flags);
-int		d_width(long n, t_flag flags);
-int		d_dot(long n, t_flag flags);
 
 int		p_handler(uintptr_t n, t_flag flags);
 int		s_handler(char *str, t_flag flags);
 int		u_handler(unsigned int n, t_flag flags);
 int		x_handler(unsigned int hex, t_flag flags, int bin);
 
-void	flag_init(t_flag *flags);
 void	flag_parsing(char const *str, t_flag *flags, int *i);
 void	flag_precision(char const *str, t_flag *flags, int *i);
 

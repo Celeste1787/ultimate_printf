@@ -6,22 +6,34 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:38:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 17:35:19 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:23:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void apply_rules(t_flag *flags)
+// This function will apply general conflicting rules depending 
+// on which flag was given.
+// For exemple, '0' and '-' are incompatible and '-' takes priority, 
+// therefor flags.zero == 0
+void	apply_rules(t_flag *flags)
 {
 	flags->total_width = flags->width;
 	if ((flags->zero && flags->dash) || flags->precision > 0)
 		flags->zero = 0;
 	if (flags->plus && flags->space)
 		flags->space = 0;
-	// if (flags->precision > 0 && flags->precision < flags->width)
-	// 	flags->total_width = flags->width - flags->precision;
 }
+
+// Will increment the pointer of i until we are no longer on flags.
+// incrementing the pointer of i helps me keep track of where I am 
+// outside of the function
+// avoid having to do multiple operations, when the parsing is done, 
+// i will be exactly where it needs to be
+
+// *flags = (t_flag){}; 
+// this will set every element inside of the structure to 0.
+// simple and easy way to set everything up, thanks Jhon.
 void	flag_parsing(char const *str, t_flag *flags, int *i)
 {
 	*flags = (t_flag){};

@@ -6,12 +6,16 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 18:00:16 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/23 13:05:19 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:04:35 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+// draft the right function, depending on the specifier, very simple, very basic
+// the "return (-1)" isn't necessary, if the specifier is wrong the behavior is 
+// undefinied but on linux it will give you -1. A clueless evaluator could
+// give you a 0 if you can't defend it
 int	ft_draft(char flag, va_list *arg, t_flag flags)
 {
 	int	wrote;

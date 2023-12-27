@@ -12,7 +12,6 @@ SRCS := c_handler.c \
 		x_handler.c \
 		ft_int.c	\
 		parsing.c	\
-		memory.c	\
 		pad_manager.c
 SRCS := $(addprefix srcs/, $(SRCS))
 

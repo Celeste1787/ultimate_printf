@@ -6,12 +6,26 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 22:23:15 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:22:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+// this project took for fucking ever, it's not hard just mentally draining. 
+// Don't give up, the light is at the end. If you have questions hit me up on
+// discord celeste1787
+
+// basic printf logic, look for a % sign 
+// and extract the data you need from there. 
+// Otherwise just print.
+// if str == NULL is an undefined behavior,
+// a clueless evaluator will give you a 0,
+// but it isn't wrong. On mac it will segfault, won't compile with gcc. On linux
+// it will compile, won't segfault and will return -1.
+// The point of the C standard is to be portable, if a function behaves 
+// differently depending on the environement, then it wasn't accounted for
+// by the C standard. Therefor undefined.
 int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
@@ -29,7 +43,6 @@ int	ft_printf(const char *str, ...)
 			i++;
 			flag_parsing(str, &flags, &i);
 			flag_precision(str, &flags, &i);
-			//  printf("flags are: %d %d %d %d %d %d %d %d\n", flags.dash, flags.plus, flags.hash, flags.space, flags.zero, flags.width, flags.precision, flags.total_width);
 			wrote += ft_draft(str[i], &arg, flags);
 		}
 		else

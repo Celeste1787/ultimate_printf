@@ -6,12 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:48:49 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 22:25:02 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:26:26 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+// Same logic as d_handler, a few specific rules but otherwise same old
 int	ft_put_n_count_hex(size_t n, int count, int bin)
 {
 	char	*base;
@@ -63,7 +64,6 @@ int	x_width(unsigned int n, t_flag flags, int bin)
 
 	count = 0;
 	len = ft_nbcount(n, 16);
-	// printf("len is: %d\n", len);
 	x_rules(&flags, len, n);
 	if (flags.dash)
 	{

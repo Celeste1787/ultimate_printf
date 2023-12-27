@@ -6,15 +6,16 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:49:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/25 17:30:08 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:24:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
+// function to handle errors
 int	p_error(t_flag flags)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (flags.dash)
@@ -25,6 +26,8 @@ int	p_error(t_flag flags)
 	return (count);
 }
 
+// added the ULONG_MAX case because of tripouille
+// tests, but it's probably useless
 int	p_handler(uintptr_t n, t_flag flags)
 {
 	int	count;
@@ -34,7 +37,7 @@ int	p_handler(uintptr_t n, t_flag flags)
 	if (n == 0)
 		return (p_error(flags));
 	if (n == ULONG_MAX)
-		numlen	= 16;
+		numlen = 16;
 	else
 		numlen = ft_nbcount(n, 16);
 	if (flags.dash)
@@ -50,4 +53,3 @@ int	p_handler(uintptr_t n, t_flag flags)
 	}
 	return (count);
 }
-
