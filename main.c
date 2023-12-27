@@ -27,10 +27,11 @@ int main()
 	// ft_printf(" %-6d\n", -16);
 	// x = ft_printf("%-+15.10d\n", -10);
 	// printf("return value is: %d\n", x);
-	x = ft_printf("%042.2d\n", 42000);
-	printf("return value is: %d\n", x);
-	x = printf("%042.2d\n", 42000);
-	printf("return value is: %d\n", x);
+	// x = ft_printf("%-10s\n", str);
+	x = ft_printf("%10.4x\n", -11);
+	printf("x is: %d\n", x);
+	// x = printf("%-10s\n", str);
+	// printf("return value is: %d\n", x);
 	// ft_put_n_count_nbr(0, 1);
 	// ft_printf("%05d\n", -15);
 	// printf("%05d\n", -15);

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:25:54 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/26 20:24:07 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:36:54 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int	ft_put_n_count_u(unsigned long n, int count)
 
 int	u_handler(unsigned int n, t_flag flags)
 {
-	int			count;
+	int	count;
 	unsigned long	x;
 
 	x = n;
 	count = 0;
-	if (flags.dot && !flags.precision && n == 0 && !flags.width)
-		return (0);
+	if (flags.dot && !flags.precision && n == 0)
+		return (case_zero(flags));
 	if (flags.width || flags.precision || flags.plus || flags.space)
 		count += d_width_m(x, flags);
 	else

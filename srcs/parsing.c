@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:38:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/26 22:26:28 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 17:35:19 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void apply_rules(t_flag *flags)
 {
-	if (flags->precision >= flags->width)
-		flags->width = 0;
 	flags->total_width = flags->width;
 	if ((flags->zero && flags->dash) || flags->precision > 0)
 		flags->zero = 0;

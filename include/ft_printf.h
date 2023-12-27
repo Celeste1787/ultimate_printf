@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/26 21:17:18 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:37:31 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,9 @@ void	flag_parsing(char const *str, t_flag *flags, int *i);
 void	flag_precision(char const *str, t_flag *flags, int *i);
 
 int		width_manager(int width, int minus, int zero);
+int		width_m(int width, int count, int zero);
 int		precision_manager(int precision, int len);
 int		d_width_m(long n, t_flag flags);
+int		case_zero(t_flag flags);
 
 #endif

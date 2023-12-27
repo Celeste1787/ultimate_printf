@@ -6,11 +6,25 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:56:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/26 22:27:41 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 18:36:36 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
+
+void	d_rules(t_flag *flags, int len, long n)
+{
+	if (flags->precision >= flags->width)
+		flags->total_width = 0;
+	if (len > flags->total_width)
+		flags->total_width = 0;
+	if (flags->precision > len && !flags->dash)
+		flags->total_width -= flags->precision;
+	if (flags->precision < len && !flags->dash)
+		flags->total_width -= len;
+	if ((n < 0 || (n >= 0 && flags->plus)) && !flags->dash && !flags->zero)
+		flags->total_width--;
+}
 
 int	width_m(int width, int count, int zero)
 {
@@ -82,16 +96,7 @@ int	d_width_m(long n, t_flag flags)
 
 	count = 0;
 	len = ft_nbcount(n, 10);
-	// printf("flags.total_width is: %d\n", flags.total_width);
-	if (len > flags.total_width)
-		flags.total_width = 0;
-	if (flags.precision > len && !flags.dash)
-		flags.total_width -= flags.precision;
-	if (flags.precision < len && !flags.dash)
-		flags.total_width -= len;
-	if ((n < 0 || (n >= 0 && flags.plus)) && !flags.dash && !flags.zero)
-		flags.total_width--;
-	// printf("total width is: %d\n", flags.total_width);
+	d_rules(&flags, len, n);
 	if (flags.dash)
 	{
 		count += sign_manager(&n, flags);
@@ -101,8 +106,6 @@ int	d_width_m(long n, t_flag flags)
 	}
 	else if (flags.zero && n < 0)
 		count += sign_manager(&n, flags);
-	// printf("total width is: %d\n", flags.total_width);
-	// printf("count is: %d\n", count);
 	count += width_m(flags.total_width, count, flags.zero);
 	if (!flags.dash)
 	{
