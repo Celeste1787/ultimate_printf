@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 15:25:54 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 18:36:54 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 20:59:43 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 int	ft_put_n_count_u(unsigned long n, int count)
 {
-	int		tmp;
+	int	tmp;
 
 	tmp = count;
-	if (n < 0)
-	{
-		n *= -1;
-		ft_put_n_count_char('-');
-		tmp++;
-	}
 	if (n > 9)
 		tmp = ft_put_n_count_nbr(n / 10, tmp + 1);
 	ft_put_n_count_char((n % 10) + 48);

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/26 21:09:58 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 22:23:15 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 			flag_parsing(str, &flags, &i);
 			flag_precision(str, &flags, &i);
-			// printf("flags are: %d %d %d %d %d %d %d %d\n", flags.dash, flags.plus, flags.hash, flags.space, flags.zero, flags.width, flags.precision, flags.total_width);
+			//  printf("flags are: %d %d %d %d %d %d %d %d\n", flags.dash, flags.plus, flags.hash, flags.space, flags.zero, flags.width, flags.precision, flags.total_width);
 			wrote += ft_draft(str[i], &arg, flags);
 		}
 		else

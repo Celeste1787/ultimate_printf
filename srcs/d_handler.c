@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:56:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 18:36:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 21:11:59 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	sign_manager(long *n, t_flag flags)
 	}
 	return (count);
 }
+
 int	case_zero(t_flag flags)
 {
 	int	count;
@@ -89,6 +90,7 @@ int	case_zero(t_flag flags)
 		count += width_m(flags.width, count, flags.precision);
 	return (count);
 }
+
 int	d_width_m(long n, t_flag flags)
 {
 	int count;

@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:48:49 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 19:00:47 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 22:25:02 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	ft_put_n_count_hex(size_t n, int count, int bin)
 {
-	int		tmp;
 	char	*base;
 	char	*cbase;
 
-	tmp = count;
 	base = "0123456789abcdef";
 	cbase = "0123456789ABCDEF";
 	if (n >= 16)
@@ -44,6 +42,8 @@ int	zero_x(unsigned int n, t_flag flags, int bin)
 
 void	x_rules(t_flag *flags, int len, unsigned int n)
 {
+	if (flags->dash && !flags->width)
+		flags->dash = 0;
 	if (flags->precision >= flags->width)
 		flags->total_width = 0;
 	if (len > flags->total_width)
@@ -63,38 +63,23 @@ int	x_width(unsigned int n, t_flag flags, int bin)
 
 	count = 0;
 	len = ft_nbcount(n, 16);
-	printf("len is: %d\n", len);
+	// printf("len is: %d\n", len);
 	x_rules(&flags, len, n);
 	if (flags.dash)
 	{
 		count += zero_x(n, flags, bin);
+		if (flags.precision > len)
+			count += precision_manager(flags.precision, len);
 		count += ft_put_n_count_hex(n, 1, bin);
 	}
-	if (flags.zero && n < 0 && !flags.dash && flags.width > ft_nbcount(n, 16))
-	{
-		count += ft_put_n_count_char('-');
-		n *= -1;
-	}
-	count += width_manager(flags.width, ft_nbcount(n, 16), flags.zero);
+	count += width_m(flags.total_width, count, flags.zero);
 	if (!flags.dash)
 	{
 		count += zero_x(n, flags, bin);
+		if (flags.precision > len)
+			count += precision_manager(flags.precision, len);
 		count += ft_put_n_count_hex(n, 1, bin);
 	}
-	return (count);
-}
-
-int	x_dot(long n, t_flag flags, int bin)
-{
-	int	count;
-	int nbcount;
-
-	count = 0;
-	if (flags.precision == 0 && n == 0)
-		return (count);
-	nbcount = ft_nbcount(n, 16);
-	count += width_manager(flags.precision, nbcount, flags.zero);
-	count += ft_put_n_count_hex(n, 1, bin);
 	return (count);
 }
 
@@ -103,11 +88,11 @@ int	x_handler(unsigned int hex, t_flag flags, int bin)
 	int	count;
 
 	count = 0;
-	if ((flags.width || flags.dash || flags.plus
-			|| flags.zero) && !flags.dot)
-		return (x_width(hex, flags, bin));
-	if (flags.dot)
-		return (x_dot(hex, flags, bin));
+	if (flags.dot && !flags.precision && hex == 0)
+		return (case_zero(flags));
+	if (flags.width || flags.precision || flags.hash)
+		count += x_width(hex, flags, bin);
 	else
-		return (ft_put_n_count_hex(hex, 1, bin));
+		count += ft_put_n_count_hex(hex, 1, bin);
+	return (count);
 }
