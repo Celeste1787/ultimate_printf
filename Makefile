@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/27 23:52:43 by akdovlet          #+#    #+#              #
+#    Updated: 2023/12/27 23:53:28 by akdovlet         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libftprintf.a
 
 INCLUDES := include/ft_printf.h
@@ -18,11 +30,11 @@ SRCS := $(addprefix srcs/, $(SRCS))
 OBJS = $(patsubst srcs/%.c,objs/%.o,$(SRCS))
 
 CC := cc
-CFLAGS := -ggdb -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra
 
 COLORS := $(shell seq 31 37)
 
-all: create_dirs $(NAME) $(INCLUDES) main
+all: create_dirs $(NAME) $(INCLUDES)
 
 main: main.c libftprintf.a
 	@cc ${CFLAGS} main.c libftprintf.a && ./a.out
@@ -42,7 +54,6 @@ clean:
 
 fclean: clean
 	@if [ -f "libftprintf.a" ]; then rm -rf libftprintf.a  && echo "\033[0;32mLibray file has been deleted\033[0m"; fi
-	@rm -rf a.out
 
 re: fclean all
 

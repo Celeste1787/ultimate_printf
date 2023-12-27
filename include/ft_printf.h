@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:28:19 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/27 23:41:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdlib.h>
 # include <stdint.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_flag
 {
