@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:58:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:23:18 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:26:44 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,23 @@ int	ft_nbcount(long long n, int base)
 		return (negative_int_len(n, base));
 	else
 		return (positive_int_len(n, base));
+}
+
+// small atoi that catches buffer overflows
+int	mini_atoi(char const *str, int *i)
+{
+	int	res;
+
+	res = 0;
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		if (res * 10 + (str[*i] - 48) < res)
+		{
+			res = -1;
+			return (res);
+		}
+		res = res * 10 + (str[*i] - 48);
+		(*i)++;
+	}
+	return (res);
 }

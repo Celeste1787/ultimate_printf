@@ -28,7 +28,8 @@ int main()
 	// x = ft_printf("%-+15.10d\n", -10);
 	// printf("return value is: %d\n", x);
 	// x = ft_printf("%-10s\n", str);
-	x = ft_printf("%-.2x", 10);
+	// printf("return value is: %d\n", x);
+	x = ft_printf(0, (char)0);
 	printf("x is: %d\n", x);
 	// x = printf("%-10s\n", str);
 	// printf("return value is: %d\n", x);

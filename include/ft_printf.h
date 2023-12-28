@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:41:00 by akdovlet         ###   ########.fr       */
+/*   Updated: 2023/12/28 17:27:16 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int		ft_put_n_count_u(unsigned long n, int count);
 int		ft_put_n_count_hex(size_t n, int count, int bin);
 
 int		ft_nbcount(long long n, int base);
+int		mini_atoi(char const *str, int *i);
 int		positive_int_len(unsigned long long n, int base);
 int		negative_int_len(long long n, int base);
 
 int		c_handler(int c, t_flag flags);
-
 int		d_handler(int n, t_flag flags);
 
 int		p_handler(uintptr_t n, t_flag flags);
