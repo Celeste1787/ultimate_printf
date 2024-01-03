@@ -6,15 +6,15 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:44:19 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:26:36 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:13:00 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // Why do I have two different width managers?
 // because I wrote width_m later, it's better than the first one
-// but width_manager still works with certain functions 
+// but width_manager still works with certain functions
 // and I can't be arsed to change it
 int	width_manager(int width, int minus, int zero)
 {

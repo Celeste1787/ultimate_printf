@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:56:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/01/03 19:26:57 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:32:12 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // Apply very specific rules to my structure depending on the circumstances
 // This is all very hard to explain but

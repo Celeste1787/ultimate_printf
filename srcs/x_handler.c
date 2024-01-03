@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:48:49 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:26:26 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:12:26 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // Same logic as d_handler, a few specific rules but otherwise same old
 int	ft_put_n_count_hex(size_t n, int count, int bin)

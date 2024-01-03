@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 15:38:02 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/28 17:27:27 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:12:56 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // This function will apply general conflicting rules depending
 // on which flag was given.

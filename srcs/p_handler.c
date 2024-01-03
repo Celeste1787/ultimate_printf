@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:49:03 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:24:00 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:13:41 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // function to handle errors
 int	p_error(t_flag flags)

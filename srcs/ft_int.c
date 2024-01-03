@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 14:58:12 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/28 17:26:44 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:13:14 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // Bunch of functions for int management.
 int	negative_int_len(long long n, int base)

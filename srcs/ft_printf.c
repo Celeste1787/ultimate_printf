@@ -6,11 +6,11 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2024/01/01 09:22:48 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:13:09 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
 // this project took for fucking ever, it's not hard just mentally draining.
 // Don't give up, the light is at the end. If you have questions hit me up on

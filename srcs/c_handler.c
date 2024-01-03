@@ -6,13 +6,13 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:42:52 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:24:15 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:13:30 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_printf.h"
+#include "ft_printf.h"
 
-// write returns an int, so you can use the 
+// write returns an int, so you can use the
 // return of write to know how much you wrote
 
 int	ft_put_n_count_char(char c)

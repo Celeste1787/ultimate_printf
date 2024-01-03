@@ -6,7 +6,7 @@
 #    By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 23:52:43 by akdovlet          #+#    #+#              #
-#    Updated: 2024/01/03 19:34:19 by akdovlet         ###   ########.fr        #
+#    Updated: 2024/01/03 20:31:19 by akdovlet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,15 @@ SRCS := c_handler.c \
 		pad_manager.c
 SRCS := $(addprefix srcs/, $(SRCS))
 
-OBJS = $(patsubst srcs/%.c,objs/%.o,$(SRCS))
+OBJS := $(patsubst srcs/%.c,objs/%.o,$(SRCS))
+DEPS := $(OBJS:.o=.d)
 
 CC := cc
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -MMD -MP -Iinclude
 
 COLORS := $(shell seq 31 37)
 
-all: create_dirs $(NAME) $(INCLUDES)
+all: create_dirs $(NAME)
 
 main: main.c libftprintf.a
 	@cc ${CFLAGS} main.c libftprintf.a && ./a.out
@@ -42,7 +43,7 @@ main: main.c libftprintf.a
 create_dirs:
 	@if [ ! -d "objs" ]; then mkdir objs; fi
 
-objs/%.o: srcs/%.c $(INCLUDES)
+objs/%.o: srcs/%.c
 # @COLOR_CODE=$$(echo "$(COLORS)" | awk '{srand(); print int(rand()*7)}');
 	@printf "\033[0;32%sm\tCompiling: $<\033[0m\n";
 	@$(CC) $(CFLAGS) -c $< -o $@;
@@ -59,5 +60,7 @@ re: fclean all
 
 $(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
+
+-include $(DEPS)
 
 .PHONY: all clean fclean re create_dirs main
