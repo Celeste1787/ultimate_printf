@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:41:04 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/28 17:27:16 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 18:41:20 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int		negative_int_len(long long n, int base);
 
 int		c_handler(int c, t_flag flags);
 int		d_handler(int n, t_flag flags);
-
 int		p_handler(uintptr_t n, t_flag flags);
 int		s_handler(char *str, t_flag flags);
 int		u_handler(unsigned int n, t_flag flags);

@@ -6,14 +6,14 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 16:56:11 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/27 23:26:10 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/03 19:26:57 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
 // Apply very specific rules to my structure depending on the circumstances
-// This is all very hard to explain but 
+// This is all very hard to explain but
 // through trial and error I came up with this
 // There has to be a simpler way of doing this
 void	d_rules(t_flag *flags, int len, long n)
@@ -73,9 +73,9 @@ int	sign_manager(long *n, t_flag flags)
 	return (count);
 }
 
-// Heres the most important part of the entire project, you will 
+// Heres the most important part of the entire project, you will
 // have more or less the same logic for every flag
-// get the len of the number, apply rules according to the len, 
+// get the len of the number, apply rules according to the len,
 // flags and the number
 // it comes down to this:
 // if dash
@@ -85,7 +85,7 @@ int	sign_manager(long *n, t_flag flags)
 //		do this
 // you print the width in middle of your code, this ensures
 // you do things in the right order.
-// then bunch of if statements to handle specific circumstances, 
+// then bunch of if statements to handle specific circumstances,
 // again trial and error
 int	d_width_m(long n, t_flag flags)
 {

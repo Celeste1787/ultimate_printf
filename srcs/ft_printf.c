@@ -6,7 +6,7 @@
 /*   By: akdovlet <akdovlet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:00:29 by akdovlet          #+#    #+#             */
-/*   Updated: 2023/12/28 17:59:41 by akdovlet         ###   ########.fr       */
+/*   Updated: 2024/01/01 09:22:48 by akdovlet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	wrote = 0;
 	va_start(arg, str);
-	if (!str)
-		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')
